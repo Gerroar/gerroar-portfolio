@@ -10,12 +10,11 @@ function App() {
    *   so the breakpoints will go for desktop/tablets
    */
 
-
   return (
     <>
-      <IntroVideo />
       <MobNavBar/>
-    </>
+      <IntroVideo />
+    </> 
   )
 }
 
