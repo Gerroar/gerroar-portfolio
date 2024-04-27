@@ -24,7 +24,6 @@ const sidebar = {
   closed: {
     clipPath: "circle(30px at 40px 40px)",
     transition: {
-      delay: 0.5,
       type: "spring",
       stiffness: 400,
       damping: 40
@@ -45,7 +44,7 @@ function MobNavBar() {
       ref={containerRef}
       className="absolute top-0 left-0 bottom-0 w-72"
     >
-      <motion.div className="absolute top-0 left-0 bottom-0 w-72 bg-white" variants={sidebar} />
+      <motion.div className="absolute top-0 left-0 bottom-0 w-screen backdrop-blur-xl" variants={sidebar} />
        <MenuToggle toggle={() => toggleOpen()}/>
     </motion.nav>
   )
