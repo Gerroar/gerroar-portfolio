@@ -4,7 +4,31 @@
 
 /*Midnight Sapphire - #0B1623
 */
+
+/*Border colors
+    blue with green #5ABCAD
+    dark blue with green #314A49
+    dark blue #07528D
+    cyan #36C6F4
+    purple with blue #616FB5
+*/
 html {
     background-color: #0B1623;
     color: aliceblue;
+}
+
+.border-gradient-full {
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+}
+
+.border-only-bottom {
+    border: 10px solid;
+    border-image-slice: 0 0 14 0;
+    border-width: 3px;
+  }
+
+.border-gradient {
+    border-image-source: linear-gradient(to left, #5ABCAD, #314A49, #07528D, #36C6F4, #616FB5);
 }
