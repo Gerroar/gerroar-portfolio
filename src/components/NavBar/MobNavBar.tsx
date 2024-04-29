@@ -7,6 +7,7 @@
 
 //Missing the navigation part , check https://codesandbox.io/p/sandbox/framer-motion-side-menu-mx2rw?file=%2Fsrc%2FNavigation.tsx%3A19%2C15
 
+
 import { motion, useCycle } from "framer-motion";
 import { useRef } from "react";
 import { useDimensions } from "../../hooks/useDimensions";
@@ -44,7 +45,7 @@ function MobNavBar() {
       ref={containerRef}
       className="absolute top-0 left-0 bottom-0 w-72"
     >
-      <motion.div className="absolute top-0 left-0 bottom-0 w-screen backdrop-blur-xl  border-gradient border-gradient-full" variants={sidebar} />
+      <motion.div className="fixed top-0 left-0 bottom-0 w-screen backdrop-blur-xl  border-gradient border-gradient-full" variants={sidebar} />
        <MenuToggle toggle={() => toggleOpen()}/>
     </motion.nav>
   )
