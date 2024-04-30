@@ -1,10 +1,10 @@
-import introwebm from '../assets/videos/gerIntro.webm'
+import intromp4 from '../assets/videos/gerIntro.mp4'
 function IntroVideo() {
 
     return (
-        <section className='ml-6'>
-            <video autoPlay muted playsInline className=''>
-                <source src={introwebm} />
+        <section className='absolute -z-10 top-20 md:left-[12vw] lg:left-[15vw] xl:left-[23vw] 2xl:left-[30vw]'>
+            <video autoPlay muted playsInline className=' max-w-[97vw] md:max-w-[80vw] lg:max-w-[75vw] xl:max-w-[55vw] 2xl:max-w-[45vw]'>
+                <source src={intromp4} />
             </video>
         </section>
     )
