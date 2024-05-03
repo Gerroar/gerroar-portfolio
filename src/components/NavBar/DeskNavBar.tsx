@@ -1,4 +1,5 @@
 
+/**Simple menu for the wider version of the web page */
 
 function DeskNavBar() {
 

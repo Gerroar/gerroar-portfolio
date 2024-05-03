@@ -45,7 +45,7 @@ function MobNavBar() {
       ref={containerRef}
       className="absolute top-0 left-0 bottom-0 w-72"
     >
-      <motion.div className="fixed top-0 left-0 bottom-0 w-screen backdrop-blur-xl  border-gradient border-gradient-full" variants={sidebar} />
+      <motion.div className="fixed z-10 top-0 left-0 bottom-0 w-screen backdrop-blur-xl  border-gradient border-gradient-full" variants={sidebar} />
        <MenuToggle toggle={() => toggleOpen()}/>
     </motion.nav>
   )

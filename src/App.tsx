@@ -1,8 +1,9 @@
 import './App.css'
 import IntroVideo from './features/IntroVideo'
 import MobNavBar from './components/NavBar/MobNavBar'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import DeskNavBar from './components/NavBar/DeskNavBar';
+import BentoIntro from './components/Bento/BentoIntro';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
     <>
       <MobNavBar />
       <IntroVideo />
+      <BentoIntro />
     </>
   )
 }

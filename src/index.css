@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/*Midnight Sapphire - #0B1623
+/*Firefly - #091421
 */
 
 /*Border colors
@@ -12,11 +12,13 @@
     cyan #36C6F4
     purple with blue #616FB5
 */
-html {
-    background-color: #081320;
+html,
+body {
+    background-color: #091421;
     color: aliceblue;
 }
 
+/*Menu*/
 
 .border-gradient-full {
     border: 10px solid;
@@ -28,8 +30,111 @@ html {
     border: 10px solid;
     border-image-slice: 0 0 14 0;
     border-width: 3px;
-  }
+}
 
 .border-gradient {
     border-image-source: linear-gradient(to left, #5ABCAD, #314A49, #07528D, #36C6F4, #616FB5);
 }
+
+/*Menu*/
+/*Bento -> Bento Intro -> Mob*/
+.bIMobParent {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+    color: #091421;
+}
+
+.bIMobBio {
+    grid-area: 1 / 1 / 4 / 4;
+}
+
+.bIMobGmail {
+    grid-area: 4 / 1 / 6 / 4;
+}
+
+.bIMobGit {
+    grid-area: 6 / 1 / 8 / 4;
+}
+
+.bIMobSlogan {
+    grid-area: 1 / 4 / 6 / 7;
+}
+
+.bIMobLinkedin {
+    grid-area: 6 / 4 / 8 / 7;
+}
+
+/*Bento -> Bento Intro -> Mob*/
+/*Bento -> Fruit Grainy Gradients*/
+
+/*Peach Gradient*/
+
+/*Red part*/
+.noise-peach {
+    width: 100%;
+    height: 200px;
+    filter: contrast(330%) brightness(100%);
+    background:
+        linear-gradient(135deg, rgba(221, 54, 55, 1), rgba(255, 255, 255, 0) 150px),
+        url(/src/assets/svgs/noise.svg);
+}
+
+
+/* Chrome-specific */
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    .noise-peach {
+        filter: contrast(152%) brightness(200%);
+    }
+}
+
+/**/
+/*Red part*/
+
+/*Overlay peach*/
+.overlay-peach {
+    position: absolute;
+    top: 0;
+    background: rgb(251, 172, 1);
+    mix-blend-mode: multiply;
+}
+/*Overlay peach*/
+
+/*Peach Gradient*/
+
+/*Banana Gradient*/
+
+/*Green part*/
+.noise-banana-green {
+    width: 100%;
+    height: 100%;
+    filter: contrast(330%) brightness(100%);
+    background:
+        linear-gradient(257deg, rgb(105, 129, 10) -20px , rgba(0, 0, 0, 0) 200px),
+        url(/src/assets/svgs/noise.svg);
+}
+
+
+/* Chrome-specific */
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    .noise-banana-green{
+        filter: contrast(240%) brightness(150%);
+    }
+}
+
+/**/
+/*Green part*/
+
+/*Overlay banana*/
+.overlay-banana {
+    position: absolute;
+    top: 0;
+    background: rgb(234, 179, 26);
+    mix-blend-mode: multiply;
+}
+/*Overlay banana*/
+/*Banana Gradient*/
+
+/*Bento -> Fruit Grainy Gradients*/
