@@ -100,6 +100,7 @@ body {
     background: rgb(251, 172, 1);
     mix-blend-mode: multiply;
 }
+
 /*Overlay peach*/
 
 /*Peach Gradient*/
@@ -112,14 +113,14 @@ body {
     height: 100%;
     filter: contrast(330%) brightness(100%);
     background:
-        linear-gradient(257deg, rgb(105, 129, 10) -20px , rgba(0, 0, 0, 0) 200px),
+        linear-gradient(257deg, rgb(105, 129, 10) -20px, rgba(0, 0, 0, 0) 200px),
         url(/src/assets/svgs/noise.svg);
 }
 
 
 /* Chrome-specific */
 @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
-    .noise-banana-green{
+    .noise-banana-green {
         filter: contrast(240%) brightness(150%);
     }
 }
@@ -134,7 +135,109 @@ body {
     background: rgb(234, 179, 26);
     mix-blend-mode: multiply;
 }
+
 /*Overlay banana*/
 /*Banana Gradient*/
 
 /*Bento -> Fruit Grainy Gradients*/
+
+/*Bento -> Bento Intro -> Social Media Gradients*/
+
+.z-logo {
+    position: absolute;
+    z-index: 1;
+}
+
+/*Gmail*/
+.noise-gmail {
+    width: 100%;
+    height: 100%;
+    filter: contrast(100%) brightness(165%);
+    background:
+        linear-gradient(90deg, rgb(126, 125, 125), rgba(0, 0, 0, 0)),
+        url(/src/assets/svgs/noise.svg);
+}
+
+
+/* Chrome-specific */
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    .noise-gmail {
+        filter: contrast(300%) brightness(135%);
+    }
+}
+
+/* IOS-specific */
+@media all and (-webkit-min-device-pixel-ratio:3) and (min-resolution: .001dpcm) {
+    .noise-gmail {
+        filter: contrast(110%) brightness(175%);
+        background:
+            linear-gradient(90deg, rgb(117, 117, 117), rgba(0, 0, 0, 0)),
+            url(/src/assets/svgs/noise.svg);
+    }
+}
+
+.overlay-gmail {
+    position: absolute;
+    top: 0;
+    background: rgb(250, 250, 250);
+    mix-blend-mode: multiply;
+}
+
+/*Gmail*/
+
+/*GitHub*/
+.noise-github-gray {
+    width: 100%;
+    height: 100%;
+    filter: contrast(330%) brightness(100%);
+    background:
+        linear-gradient(30deg, rgb(87, 91, 95), rgba(0, 0, 0, 0)),
+        url(/src/assets/svgs/noise.svg);
+}
+
+
+/* Chrome-specific */
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    .noise-github-gray {
+        filter: contrast(280%) brightness(150%);
+    }
+}
+
+.overlay-github {
+    position: absolute;
+    top: 0;
+    background: rgb(34, 38, 42);
+    mix-blend-mode: multiply;
+}
+
+/*GitHub*/
+
+/*LinkedIn*/
+
+.noise-linkedin-blue {
+    width: 100%;
+    height: 100%;
+    filter: contrast(330%) brightness(100%);
+    background:
+        linear-gradient(312deg, rgb(18, 107, 196), rgba(0, 0, 0, 0)),
+        url(/src/assets/svgs/noise.svg);
+}
+
+
+/* Chrome-specific */
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    .noise-linkedin-blue {
+        filter: contrast(280%) brightness(150%);
+    }
+}
+
+.overlay-linkedin {
+    position: absolute;
+    top: 0;
+    background: rgb(18, 107, 196);
+    mix-blend-mode: multiply;
+}
+
+/*LinkedIn*/
+
+/*Bento -> Bento Intro -> Social Media Gradients*/
