@@ -241,3 +241,54 @@ body {
 /*LinkedIn*/
 
 /*Bento -> Bento Intro -> Social Media Gradients*/
+
+/*background: #EB4132;
+
+/*gmail*/
+
+.gmail-blue {
+    background: #4181EE;
+}
+
+.gmail-dark-red {
+    background: #C61C19;
+}
+
+.gmail-red {
+    position: absolute;
+    top: .9rem;
+    padding: 1.39rem;
+    height: 0px;
+    width: 100%;
+}
+
+.gmail-red:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 99%;
+    width: 50%;
+    background: red;
+    transform: skew(0deg, 45deg);
+  }
+  .gmail-red:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 99%;
+    width: 50%;
+    background: red;
+    transform: skew(0deg, 315deg);
+  }
+
+.gmail-yellow {
+    background: #FBBD00;
+}
+
+.gmail-green {
+    background: #32A352;
+}
+
+/*gmail*/

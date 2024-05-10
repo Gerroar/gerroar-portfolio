@@ -4,6 +4,7 @@ import GithubLogo from "../../../assets/svgs/github-logo.svg";
 
 function MobBIntro() {
 
+
     return (
 
         <LayoutGroup>
@@ -12,7 +13,14 @@ function MobBIntro() {
                     <div className="rounded-lg noise-peach"></div>
                     <div className="rounded-lg overlay-peach w-full h-full"></div>
                 </motion.div>
-                <motion.div className="rounded-lg bIMobGmail isolate w-full h-full relative">
+                <motion.div className="rounded-lg bIMobGmail isolate w-full h-full relative overflow-hidden">
+                    <div className="w-full h-full z-logo">
+                        <div className="gmail-red absolute"></div>
+                        <div className="gmail-blue top-3 h-full w-7 absolute "></div>
+                        <div className="gmail-dark-red absolute -top-1 h-11 w-7 skew-y-[45deg]"></div>
+                        <div className="gmail-green top-3 h-full w-7 absolute right-0"></div>
+                        <div className="gmail-yellow absolute right-0 -top-1 h-11 w-7 skew-y-[315deg]"></div>
+                    </div>
                     <div className="rounded-lg noise-gmail"></div>
                     <div className="rounded-lg overlay-gmail w-full h-full"></div>
                 </motion.div>
