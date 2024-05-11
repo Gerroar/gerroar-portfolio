@@ -8,7 +8,7 @@ function MobBIntro() {
     return (
 
         <LayoutGroup>
-            <motion.div className="bg-firefly bIMobParent" layout>
+            <motion.div className="bg-firefly bIMobParent w-[265px] md:w-[450px] " layout>
                 <motion.div className="rounded-lg bIMobBio isolate w-full h-full relative">
                     <div className="rounded-lg noise-peach"></div>
                     <div className="rounded-lg overlay-peach w-full h-full"></div>
