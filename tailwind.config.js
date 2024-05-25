@@ -10,7 +10,9 @@ module.exports = {
       }
     },
     screens: {
-      'xs': '375px',
+      'xxs': '375px',
+      'xs': '390px',
+      's': '430px',
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
@@ -23,8 +25,12 @@ module.exports = {
       'xl': '1280px',
       // => @media (min-width: 1280px) { ... }
 
-      '2xl': '1536px',
+      '2xl': '1440px',
       // => @media (min-width: 1536px) { ... }
+      '3xl': '1536px',
+      '4xl': '1920px',
+      '5xl': '1930px'
+
     }
   },
   plugins: [],

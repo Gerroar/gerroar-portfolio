@@ -17,7 +17,7 @@ function App() {
   const [width, setWidth] = useState(window.innerWidth);
 
   //Breakpoint for max width on mobile devices
-  const breakPoint = 800;
+  const breakPoint = 1023;
 
   //Updates for every re-size event
   useEffect(() => {
@@ -29,11 +29,18 @@ function App() {
       window.removeEventListener("resize", handleResizeWindow)
     )
   }, [])
-  if(width > breakPoint) {
+  if (width > breakPoint) {
     return (
       <>
         <DeskNavBar />
-        <IntroVideo />
+        <div className="desk-intro-grid">
+          <div>
+            <IntroVideo />
+          </div>
+          <div>
+            <BentoIntro />
+          </div>
+        </div>
       </>
     )
   }
