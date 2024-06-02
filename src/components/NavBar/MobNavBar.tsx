@@ -32,21 +32,34 @@ const sidebar = {
   }
 };
 
+
+
 function MobNavBar() {
 
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
+
+  const toggleValues = () => {
+    toggleOpen();
+    if(isOpen) {
+      console.log("I enter")
+      document.getElementById("root")?.classList.remove('no-scroll')
+    }else{
+      console.log("I ener")
+      document.getElementById("root")?.classList.add('no-scroll')
+    }
+  }
   return (
     <motion.nav
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
-      className="absolute top-0 left-0 bottom-0 w-72"
+      className="mobnavbar absolute top-0 left-0 bottom-0 w-72"
     >
-      <motion.div className="fixed z-10 top-0 left-0 bottom-0 w-screen backdrop-blur-xl  border-gradient border-gradient-full" variants={sidebar} />
-       <MenuToggle toggle={() => toggleOpen()}/>
+      <motion.div className="fixed z-20 top-0 left-0 bottom-0 w-screen backdrop-blur-xl  border-gradient border-gradient-full" variants={sidebar} />
+       <MenuToggle toggle={() => toggleValues()}/>
     </motion.nav>
   )
 }
