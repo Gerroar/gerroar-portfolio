@@ -43,10 +43,8 @@ function MobNavBar() {
   const toggleValues = () => {
     toggleOpen();
     if(isOpen) {
-      console.log("I enter")
       document.getElementById("root")?.classList.remove('no-scroll')
     }else{
-      console.log("I ener")
       document.getElementById("root")?.classList.add('no-scroll')
     }
   }
@@ -56,7 +54,7 @@ function MobNavBar() {
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
-      className="mobnavbar absolute top-0 left-0 bottom-0 w-72"
+      className="absolute top-0 left-0 bottom-0"
     >
       <motion.div className="fixed z-20 top-0 left-0 bottom-0 w-screen backdrop-blur-xl  border-gradient border-gradient-full" variants={sidebar} />
        <MenuToggle toggle={() => toggleValues()}/>

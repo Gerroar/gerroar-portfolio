@@ -4,9 +4,7 @@ import GithubLogo from "../../assets/svgs/github-logo.svg";
 import IntroVideo from "../../features/IntroVideo";
 
 function BentoIntro() {
-
-    /**When develop the desktop part, use parameters to pass the breakpoint value from the app.tsx to this file */
-    return (
+      return (
         <LayoutGroup>
             <motion.div className="bg-firefly bIParent ml-auto mr-auto mt-6 w-[90%] h-[90rem] 
             xxs:mt-10 xxs:ml-5 xxs:w-[20rem] xxs:h-[34rem] 
@@ -14,10 +12,9 @@ function BentoIntro() {
             s:w-[24rem] s:h-[42rem] s:mr-auto s:ml-auto 
             md:w-[28rem] md:h-[48rem] 
             lg:w-[36rem] lg:mt-24 lg:h-[30rem]
-            xl:w-[28rem] xl:h-[36rem]
-            3xl:w-[48rem] 3xl:h-[22rem] 3xl:mt-44
-            4xl:mt-36 4xl:w-[68rem] 4xl:h-[40rem]
-            5xl:float-right 5xl:mr-44" layout>
+            xl:w-[40rem] xl:h-[36rem]
+            3xl:w-[44rem] 3xl:h-[36rem] 3xl:mt-28
+            4xl:mt-36 4xl:w-[58rem] 4xl:h-[45rem]" layout>
                 <motion.div className="bIVideo flex justify-center items-center rounded-3xl">
                     <motion.div className="video-wrapper w-[95%] h-[95%] rounded-3xl">
                         <IntroVideo />
@@ -33,20 +30,28 @@ function BentoIntro() {
                         <div className="gmail-blue top-3 h-full w-11 absolute
                         xxs:w-8
                         lg:w-7
-                        xl:w-8"></div>
+                        xl:w-8
+                        3xl:w-11
+                        4xl:w-12"></div>
                         <div className="gmail-dark-red absolute -top-[1.8rem] h-16 w-11 skew-y-[45deg] 
                         xxs:-top-[1rem] xxs:h-12 xxs:w-8  md:h-14 md:left-[.01rem]
                         lg:left-0 lg:-top-[.85rem] lg:w-7 lg:h-11
-                        xl:-top-[1.1rem] xl:w-8 xl:h-12"></div>
+                        xl:-top-[1.2rem] xl:w-8 xl:h-14
+                        3xl:-top-[1.65rem] 3xl:w-11 3xl:h-16
+                        4xl:-top-[1.65rem] 4xl:w-12 4xl:h-20"></div>
                         <div className="gmail-green top-3 h-full w-11 absolute right-0
                         xxs:w-8
                         lg:w-7
-                        xl:w-8"></div>
+                        xl:w-8
+                        3xl:w-11
+                        4xl:w-12"></div>
                         <div className="gmail-yellow absolute right-0 -top-[1.8rem] h-16 w-11 skew-y-[315deg] 
                         xxs:-top-[1rem] xxs:h-12 xxs:w-8 
                         md:h-14
                         lg:-top-[.85rem] lg:w-7 lg:h-11
-                        xl:-top-[1.1rem] xl:w-8 xl:h-12"></div>
+                        xl:-top-[1.2rem] xl:w-8 xl:h-14
+                        3xl:-top-[1.6rem] 3xl:w-11 3xl:h-16
+                        4xl:-top-[1.65rem] 4xl:w-12 4xl:h-20"></div>
                     </div>
                     <div className="rounded-lg noise-gmail"></div>
                     <div className="rounded-lg overlay-gmail w-full h-full"></div>
