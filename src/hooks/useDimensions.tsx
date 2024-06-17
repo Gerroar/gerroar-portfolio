@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 export const useDimensions = (ref:any) => {
-  const dimensions = useRef({ width: 0, height: 0 });
+  const dimensions = useRef({ widthDim: 0, heightDim: 0 });
 
   useEffect(() => {
-    dimensions.current.width = ref.current.offsetWidth;
-    dimensions.current.height = ref.current.offsetHeight;
+    dimensions.current.widthDim = ref.current.offsetWidth;
+    dimensions.current.heightDim = ref.current.offsetHeight;
   }, []);
 
   return dimensions.current;
