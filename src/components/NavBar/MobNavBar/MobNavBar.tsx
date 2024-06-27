@@ -10,31 +10,53 @@
 
 import { LayoutGroup, motion, useAnimation, useCycle } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { MenuToggle } from "../MenuToggle";
+import { MenuToggle } from "../MenuToggle/MenuToggle";
 import { sidebarVariants } from "./MnbVariants";
 
 function MobNavBar() {
+  //Variable to acces HTML tag
   var root = document.documentElement;
   //Function to use more precise framer animation controls
   const sidebarControls = useAnimation();
   //State for the toggling between the open and close menu
   const [isOpen, toggleOpen] = useCycle(false, true);
+  /**State for handling the need of doing double click into the 
+   * button to trigger the animation, for the moment it's the 
+   * only solution
+   */
+  const [firstTime, setFirstTime] = useState(true);
   //State for store the window height
   const [height, setHeight] = useState(window.innerHeight);
   //State for toggle visible
   const [isVisible, setIsVisible] = useState(false);
   //Variable for storing previous scroll
   const prevScrollPos = useRef(0);
+  const toggleValues = () => {
+    if (firstTime) {
+      sidebarControls.start('opened');
+      root.classList.add('no-scroll');
+      setFirstTime(false);
+    } else {
+      toggleOpen();
+      if (isOpen) {
+        sidebarControls.start('opened');
+        root.classList.add('no-scroll');
+      } else {
+        sidebarControls.start('closed')
+        root.classList.remove('no-scroll');
+      }
+    }
+  }
+
   useEffect(() => {
-    sidebarControls.start('show');
+    sidebarControls.start('firstShow');
     const handleResizeHeightWindow = () => setHeight(window.innerHeight);
     window.addEventListener("resize", handleResizeHeightWindow);
     /**Toggle visibility , will change when the user scrolls */
     const toggleVisibility = () => {
       const currentScrollPos = window.scrollY;
       // Button is displayed after scrolling for 500 pixels
-      console.log(currentScrollPos)
-      if (currentScrollPos > 300 && currentScrollPos > prevScrollPos.current) {
+      if (currentScrollPos > 500 && currentScrollPos > prevScrollPos.current) {
         setIsVisible(true);
         sidebarControls.start('hidde');
       } else {
@@ -53,18 +75,6 @@ function MobNavBar() {
     }
   }, [height, isVisible])
 
-  const toggleValues = () => {
-    toggleOpen();
-    if (isOpen) {
-      sidebarControls.start('open');
-      root.classList.add('no-scroll');
-    } else {
-      sidebarControls.start('closed')
-      root.classList.remove('no-scroll');
-    }
-  }
-
-
   return (
     <LayoutGroup>
       <motion.nav
@@ -72,10 +82,11 @@ function MobNavBar() {
         animate={sidebarControls}
       >
         <motion.div id="mobCircle" className="fixed z-20 left-0 top-0 bottom-0 w-screen backdrop-blur-xl  border-gradient border-gradient-full"
+          initial="hidde"
           variants={sidebarVariants}
           animate={sidebarControls}
         />
-        <MenuToggle toggle={() => toggleValues()} />
+        <MenuToggle toggle={() => toggleValues()} isOpen={isOpen} isVisible={isVisible} />
       </motion.nav>
     </LayoutGroup>
   )
