@@ -27,7 +27,6 @@ function MobNavBar() {
   const [firstTime, setFirstTime] = useState(true);
   //State for store the window height
   const [height, setHeight] = useState(window.innerHeight);
-
   let { scrollY } = useScroll();
   let scrollYOnDirectionChange:React.MutableRefObject<number> = useRef(scrollY.get());
   let lastPixelsScrolled:React.MutableRefObject<number|undefined> = useRef();
@@ -76,6 +75,7 @@ function MobNavBar() {
         }
 
         lastScrollDirection.current = scrollDirection;
+        console.log()
       })
     }
   }, [height, scrollY])
