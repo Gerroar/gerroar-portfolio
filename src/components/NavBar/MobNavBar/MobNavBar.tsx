@@ -8,16 +8,16 @@
 //Missing the navigation part , check https://codesandbox.io/p/sandbox/framer-motion-side-menu-mx2rw?file=%2Fsrc%2FNavigation.tsx%3A19%2C15
 
 
-import { LayoutGroup, motion, useAnimation, useCycle } from "framer-motion";
+import { AnimationControls, LayoutGroup, motion, MotionValue, useAnimation, useCycle, useMotionValue, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { MenuToggle } from "../MenuToggle/MenuToggle";
 import { sidebarVariants } from "./MnbVariants";
 
 function MobNavBar() {
   //Variable to acces HTML tag
-  var root = document.documentElement;
+  var root:HTMLElement = document.documentElement;
   //Function to use more precise framer animation controls
-  const sidebarControls = useAnimation();
+  const sidebarControls:AnimationControls = useAnimation();
   //State for the toggling between the open and close menu
   const [isOpen, toggleOpen] = useCycle(false, true);
   /**State for handling the need of doing double click into the 
@@ -27,10 +27,13 @@ function MobNavBar() {
   const [firstTime, setFirstTime] = useState(true);
   //State for store the window height
   const [height, setHeight] = useState(window.innerHeight);
-  //State for toggle visible
-  const [isVisible, setIsVisible] = useState(false);
-  //Variable for storing previous scroll
-  const prevScrollPos = useRef(0);
+
+  let { scrollY } = useScroll();
+  let scrollYOnDirectionChange:React.MutableRefObject<number> = useRef(scrollY.get());
+  let lastPixelsScrolled:React.MutableRefObject<number|undefined> = useRef();
+  let lastScrollDirection:React.MutableRefObject<string|undefined> = useRef();
+  let pixelsScrolled:MotionValue<number> = useMotionValue(0);
+
   const toggleValues = () => {
     if (firstTime) {
       sidebarControls.start('opened');
@@ -47,33 +50,35 @@ function MobNavBar() {
       }
     }
   }
-
   useEffect(() => {
     sidebarControls.start('firstShow');
     const handleResizeHeightWindow = () => setHeight(window.innerHeight);
     window.addEventListener("resize", handleResizeHeightWindow);
-    /**Toggle visibility , will change when the user scrolls */
-    const toggleVisibility = () => {
-      const currentScrollPos = window.scrollY;
-      // Button is displayed after scrolling for 500 pixels
-      if (currentScrollPos > 500 && currentScrollPos > prevScrollPos.current) {
-        setIsVisible(true);
-        sidebarControls.start('hidde');
-      } else {
-        setIsVisible(false);
-        sidebarControls.start('show');
-      }
-      prevScrollPos.current = currentScrollPos;
-    };
-    window.addEventListener("scroll", toggleVisibility);
-    /**Toggle visibility , will change when the user scrolls */
     return () => {
       window.removeEventListener("resize", handleResizeHeightWindow);
-      /**Toggle visibility */
-      window.removeEventListener("scroll", toggleVisibility);
-      /**Toggle visibility */
+      scrollY.on("change", latest => {
+        let scrollYPrevious = scrollY.getPrevious();
+        if (latest < 0) return;
+        if (scrollYPrevious === undefined) return;
+        let isScrollingDown = scrollYPrevious - latest < 0;
+        let scrollDirection = isScrollingDown ? "down" : "up";
+        let currentPixelsScrolled = pixelsScrolled.get();
+
+        if (lastScrollDirection.current !== scrollDirection && lastPixelsScrolled !== undefined) {
+          lastPixelsScrolled.current = currentPixelsScrolled;
+          scrollYOnDirectionChange.current = latest;
+        }
+
+        if (isScrollingDown) {
+          sidebarControls.start('hidde');
+        } else {
+          sidebarControls.start('show');
+        }
+
+        lastScrollDirection.current = scrollDirection;
+      })
     }
-  }, [height, isVisible])
+  }, [height, scrollY])
 
   return (
     <LayoutGroup>
@@ -86,7 +91,7 @@ function MobNavBar() {
           variants={sidebarVariants}
           animate={sidebarControls}
         />
-        <MenuToggle toggle={() => toggleValues()} isOpen={isOpen} isVisible={isVisible} />
+        <MenuToggle toggle={() => toggleValues()}/>
       </motion.nav>
     </LayoutGroup>
   )

@@ -1,3 +1,4 @@
+
 export const sidebarVariants = {
     opened: (heightDim = 1000) => ({
         clipPath: `ellipse(${heightDim * 2 + 200}px ${heightDim * 2 + 200}px  at 50% 83vh)`,
@@ -34,6 +35,7 @@ export const sidebarVariants = {
         transition: {
             duration: 0.2,
             type: "spring",
+            delay: 0.2
         }
     }
 }

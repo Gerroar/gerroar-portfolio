@@ -5,17 +5,16 @@ import { thirdPath } from "./ToggleVariants";
 
 interface MenuToggleProps {
     toggle: any,
-    isOpen: boolean,
-    isVisible: boolean
 }
 
-export const MenuToggle = ({ toggle, isOpen, isVisible }: MenuToggleProps) => {
+export const MenuToggle = ({ toggle }: MenuToggleProps) => {
 
     /**Variants explanation:
      * Because the parent of this component MobNavBar, has variants with the same label
      * tags ( opened and closed), there is no need to repeat the procces of the parent 
      * in the child, it just needs variants with the same labels ( opened and closed)
      */
+
 
 
     return (
