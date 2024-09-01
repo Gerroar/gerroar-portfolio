@@ -1,15 +1,14 @@
-export const svgVariants = {
+export const buttonVariants = {
     show: {
         opacity: 1,
         transition: {
-            duration: 0.2,
-            delay: 0.2
+            duration: 0.2
         }
     },
     hidde: {
         opacity: 0,
         transition: {
-            duration: 0.2,
+            duration: 0.2
         }
     }, 
 }

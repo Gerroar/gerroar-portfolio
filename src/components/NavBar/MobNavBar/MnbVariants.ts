@@ -19,23 +19,25 @@ export const sidebarVariants = {
     firstShow: {
         clipPath: `ellipse(30px 30px at 50% 83vh)`,
         transition: {
-            duration: 0.6,
-            type: "spring",
-        }
+            duration: 0.3,
+            when: "beforeChildren",
+            staggerChildren: 0.2
+        },
+        viewport: {once: true}
     },
     show: {
         clipPath: `ellipse(30px 30px at 50% 83vh)`,
         transition: {
             duration: 0.2,
-            type: "spring",
+            when: "beforeChildren",
+            staggerChildren: 0.2
         }
     },
     hidde: {
         clipPath: `ellipse(0px 0px at 50% 83vh)`,
         transition: {
             duration: 0.2,
-            type: "spring",
-            delay: 0.2
+            when: "afterChildren"
         }
     }
 }
