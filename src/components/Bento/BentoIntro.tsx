@@ -1,4 +1,5 @@
 import { LayoutGroup, motion } from "framer-motion";
+import Rive from "@rive-app/react-canvas";
 import LinkedinLogo from "../../assets/svgs/linkedin-letters.svg";
 import GithubLogo from "../../assets/svgs/github-logo.svg";
 import IntroVideo from "../../features/IntroVideo";

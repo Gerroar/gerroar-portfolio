@@ -69,9 +69,9 @@ function MobNavBar() {
         let currentPixelsScrolled = pixelsScrolled.get();
         /**Variables description
          * Every time the user interacts going down/up , the position will be saved 
-         * for checking in the conditionals adding for example 200 ints to the saved
+         * for checking in the conditionals adding for example 400 ints to the saved
          * value , so if for example the user keeps going done it will keep checking 
-         * until the current positions matches the stored down value + 200 ints, this 
+         * until the current positions matches the stored down value + 400 ints, this 
          * is done in order to make the animation triggers less sensible to down/up 
          * interactions
          * 
@@ -79,11 +79,7 @@ function MobNavBar() {
          * when the user enters the page its 0
          * 
          */
-        /**Test */
         let positionOnDownStart = 400;
-        /**Test */
-
-
         if (lastScrollDirection.current !== scrollDirection && lastPixelsScrolled !== undefined) {
           lastPixelsScrolled.current = currentPixelsScrolled;
           scrollYOnDirectionChange.current = latest;
