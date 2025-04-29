@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@cutting/svg": "^4.54.19",
-    "@rive-app/react-canvas": "^4.13.9",
+    "@rive-app/react-canvas": "^4.18.3",
     "framer-motion": "^11.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

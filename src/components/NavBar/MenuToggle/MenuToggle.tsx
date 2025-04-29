@@ -18,7 +18,7 @@ export const MenuToggle = ({ toggle }: MenuToggleProps) => {
 
 
     return (
-        <motion.button onClick={toggle} id="menuLines" className="fixed z-20 outline-none border-none cursor-pointer top-[79.5vh] left-[47.3vw] w-14 h-14 bg-transparent
+        <motion.button onClick={toggle} id="menuLines" className="fixed z-30 outline-none border-none cursor-pointer top-[79.5vh] left-[47.3vw] w-14 h-14 bg-transparent
         md:left-[48.5vw]"
         variants={buttonVariants}
         >

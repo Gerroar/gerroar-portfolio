@@ -1,11 +1,20 @@
 import { LayoutGroup, motion } from "framer-motion";
-import Rive from "@rive-app/react-canvas";
+import Rive, { Fit, Layout } from "@rive-app/react-canvas";
+import Burn from "../../assets/rive/burn.riv";
 import LinkedinLogo from "../../assets/svgs/linkedin-letters.svg";
 import GithubLogo from "../../assets/svgs/github-logo.svg";
 import IntroVideo from "../../features/IntroVideo";
+import { useEffect, useRef } from "react";
 
 function BentoIntro() {
-      return (
+
+    const myCanvasRef = useRef(null);
+    useEffect(() => {
+        if (myCanvasRef.current) { 
+            console.log('My DOM element:', myCanvasRef.current);
+        }
+    }, [])
+    return (
         <LayoutGroup>
             <motion.div className="bg-firefly bIParent ml-auto mr-auto mt-6 w-[90%] h-[90rem] 
             xxs:mt-10 xxs:ml-5 xxs:w-[20rem] xxs:h-[34rem] 
@@ -21,11 +30,14 @@ function BentoIntro() {
                         <IntroVideo />
                     </motion.div>
                 </motion.div>
-                <motion.div className="rounded-lg bIBio isolate w-full h-full relative">
-                    <div className="rounded-lg noise-peach"></div>
-                    <div className="rounded-lg overlay-peach w-full h-full"></div>
+                <motion.div className="bIBio relative">
+                    <motion.div className="rounded-lg isolate z-10 w-full h-full relative">
+                        <div className="rounded-lg noise-peach"></div>
+                        <div className="rounded-lg overlay-peach w-full h-full"></div>
+                    </motion.div>
+                    <Rive ref={myCanvasRef} src={Burn} layout={new Layout({fit: Fit.Fill})} animations="Burn" className="z-20 w-full h-full absolute top-0 left-0"/>
                 </motion.div>
-                <motion.div className="rounded-lg bIGmail isolate w-full h-full relative overflow-hidden">
+                <motion.div className="rounded-lg bIGmail isolate z-10 w-full h-full relative overflow-hidden">
                     <div className="w-full h-full z-logo">
                         <div className="gmail-red absolute"></div>
                         <div className="gmail-blue top-3 h-full w-11 absolute

@@ -117,7 +117,7 @@ function MobNavBar() {
         animate={sidebarControls}
       >
         <AnimatePresence>
-          <motion.div id="mobCircle" className="fixed z-20 left-0 top-0 bottom-0 w-screen backdrop-blur-xl  border-gradient border-gradient-full"
+          <motion.div id="mobCircle" className="fixed z-30 left-0 top-0 bottom-0 w-screen backdrop-blur-xl  border-gradient border-gradient-full"
             key='cricle'
             initial="hidde"
             variants={sidebarVariants}
