@@ -1,3 +1,12 @@
+/* =========================================
+   Root container (App.css)
+   Purpose:
+   - Constrain app width to 95% of viewport
+   - Center horizontally with auto margins
+   - Apply centered text alignment by default
+   Contract:
+   - Provides a consistent base layout for the entire app
+   ========================================= */
 #root {
   max-width: 95%;
   margin: 0 auto;
