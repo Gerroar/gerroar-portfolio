@@ -13,6 +13,24 @@ function App() {
    *   so the breakpoints will go for desktop/tablets
    */
 
+  /**
+   * App — top-level composition for the portfolio.
+   *
+   * Purpose:
+   *  - Renders the global layout with navigation and main content sections.
+   *  - Uses a mobile-first approach (Tailwind breakpoints scale up for tablet/desktop).
+   *
+   * Structure:
+   *  - Mobile/desktop navigation (MobNavBar / DeskNavBar).
+   *  - Main content sections (e.g., BentoIntro).
+   *
+   * Expected result:
+   *  - A responsive landing that loads fast and keeps layout stable across breakpoints.
+   *
+   * Notes:
+   *  - Tailwind classes follow a mobile-first strategy; desktop/tablet styles are applied via breakpoints.
+   */
+
   //State for store the window width
   const [width, setWidth] = useState(window.innerWidth);
 
