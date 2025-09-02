@@ -66,6 +66,12 @@ function MobNavBar() {
     }
   }
   return (
+  {/* Motion nav wrapper
+      Classes:
+      - absolute top-0 left-0 bottom-0 → anchors nav to viewport
+      - animated between "open" and "closed" states
+      - custom={height} ensures clipPath scales with container height
+  */}
     <motion.nav
       initial={false}
       animate={isOpen ? "open" : "closed"}
@@ -73,7 +79,14 @@ function MobNavBar() {
       ref={containerRef}
       className="absolute top-0 left-0 bottom-0"
     >
+      {/* Background panel
+        - fixed full-screen overlay
+        - backdrop-blur-xl → frosted glass effect
+        - border-gradient-full → gradient applied to all edges
+        - variants={sidebar} → controls clipPath animation
+      */}
       <motion.div className="fixed z-20 top-0 left-0 bottom-0 w-screen backdrop-blur-xl  border-gradient border-gradient-full" variants={sidebar} />
+        {/* Menu toggle (hamburger button) */}
        <MenuToggle toggle={() => toggleValues()}/>
     </motion.nav>
   )
