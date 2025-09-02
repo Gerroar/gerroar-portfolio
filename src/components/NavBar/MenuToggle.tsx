@@ -1,3 +1,23 @@
+/**
+ * MenuToggle — animated hamburger button for mobile nav.
+ *
+ * Purpose:
+ *  - Render an accessible toggle control to open/close the mobile menu.
+ *  - Drive open/close animations via Framer Motion.
+ *
+ * Props:
+ *  - isOpen: boolean — current open/closed state of the menu.
+ *  - onToggle: () => void — invoked when the user activates the button.
+ *
+ * Accessibility:
+ *  - role="button", aria-expanded={isOpen}, aria-controls referencing the menu container.
+ *  - Keyboard: Space/Enter toggles; Esc should close if the button holds focus.
+ *
+ * Expected result:
+ *  - Visual transition between hamburger and close (X) icon.
+ *  - No scroll jank when opening/closing the menu.
+ */
+
 import { motion } from "framer-motion";
 
 const Path = (props: any) => (
