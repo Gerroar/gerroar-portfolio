@@ -1,3 +1,25 @@
+/**
+ * BentoIntro — responsive “bento” grid showcasing intro tiles.
+ *
+ * Purpose:
+ *  - Present a set of tiles/cards that adapt across breakpoints.
+ *  - Some tiles may span multiple rows/columns for emphasis.
+ *
+ * Layout:
+ *  - Mobile-first grid; increases columns/row spans at larger breakpoints.
+ *  - Utility-first styling with Tailwind to keep styles local and explicit.
+ *
+ * Interactions:
+ *  - Optional hover/focus states and entrance animations.
+ *  - Respect prefers-reduced-motion when adding motion effects.
+ *
+ * Expected result:
+ *  - A visually balanced grid that remains readable and performant on all screens.
+ *
+ * Notes:
+ *  - Document any “magic numbers” in class names (fixed widths/heights) with rationale.
+ */
+
 import { LayoutGroup, motion } from "framer-motion";
 import LinkedinLogo from "../../assets/svgs/linkedin-letters.svg";
 import GithubLogo from "../../assets/svgs/github-logo.svg";
