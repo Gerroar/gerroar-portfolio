@@ -1,5 +1,19 @@
-
-/**Simple menu for the wider version of the web page */
+/**
+ * DeskNavBar — fixed top navigation for desktop/tablet screens.
+ *
+ * Purpose:
+ *  - Provides a persistent top bar with backdrop blur and a bottom border gradient.
+ *
+ * Behavior:
+ *  - Fixed positioning at the top.
+ *  - No internal state; acts as a purely presentational component.
+ *
+ * Accessibility:
+ *  - Wrap in a <nav role="navigation"> at a higher level if links are added here later.
+ *
+ * Expected result:
+ *  - A visually clean, semi-transparent top bar that does not interfere with page scroll.
+ */
 
 function DeskNavBar() {
 
