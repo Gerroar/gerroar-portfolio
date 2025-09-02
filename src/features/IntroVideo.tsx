@@ -1,3 +1,21 @@
+/**
+ * IntroVideo — lightweight hero video section.
+ *
+ * Purpose:
+ *  - Display a short looping intro/hero video for brand impact.
+ *
+ * Playback:
+ *  - Uses `autoPlay`, `muted`, and `playsInline` to satisfy mobile autoplay policies.
+ *  - Consider adding `poster` as a fallback for the first frame (improves perceived LCP).
+ *
+ * Performance:
+ *  - Ensure the video source is optimized (resolution/bitrate) to avoid layout shifts.
+ *  - Consider lazy-loading or deferring if it impacts initial render.
+ *
+ * Expected result:
+ *  - Starts quickly without blocking UI; falls back gracefully if playback fails.
+ */
+
 import intromp4 from '../assets/videos/gerIntro.mp4'
 function IntroVideo() {
 
