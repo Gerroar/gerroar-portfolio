@@ -31,14 +31,27 @@ const Path = (props: any) => (
 );
 
 export const MenuToggle = ({ toggle }: any) => (
+    {/* Toggle button
+    Classes:
+    - fixed top-4 left-1 → pinned to top-left corner
+    - w-14 h-12 → large hit area for touch devices
+    - z-20 → sits above overlay
+    - bg-transparent, outline-none → minimal styling
+    */}
     <button onClick={toggle} className="fixed z-20 outline-none border-none cursor-pointer top-4 left-1 w-14 h-12 bg-transparent">
+    {/* SVG icon
+      - width/height fixed to 23px
+      - ml-6 → positions icon inside button padding
+    */}
         <svg width="23" height="23" viewBox="0 0 23 23" className="ml-6">
+        {/* Top line → animates into diagonal when open */}
             <Path
                 variants={{
                     closed: { d: "M 2 2.5 L 20 2.5" },
                     open: { d: "M 3 16.5 L 17 2.5" }
                 }}
             />
+        {/* Middle line → fades out when open */}
             <Path
                 d="M 2 9.423 L 20 9.423"
                 variants={{
@@ -47,6 +60,7 @@ export const MenuToggle = ({ toggle }: any) => (
                 }}
                 transition={{ duration: 0.1 }}
             />
+            {/* Bottom line → animates into diagonal when open */}
             <Path
                 variants={{
                     closed: { d: "M 2 16.346 L 20 16.346" },
