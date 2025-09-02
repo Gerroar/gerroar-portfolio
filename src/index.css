@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================================
+   Brand color reference
+   Firefly — primary dark background (#091421)
+   ========================================= */
 /*Firefly - #091421
 */
 
+/* =========================================
+   Border gradient palette
+   Reference colors used across gradient borders
+   ========================================= */
 /*Border colors
     blue with green #5ABCAD
     dark blue with green #314A49
@@ -12,25 +20,44 @@
     cyan #36C6F4
     purple with blue #616FB5
 */
+
+/* =========================================
+   Base document styling
+   Purpose: enforce dark background & readable light text
+   ========================================= */
 html,
 body {
     background-color: #091421;
     color: aliceblue;
 }
 
+/* =========================================
+   Safe areas
+   Purpose: avoid clipping on iOS notches/rounded corners
+   ========================================= */
 #root {
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
 }
 
+/* =========================================
+   Scroll control
+   Purpose: disable touch scroll (e.g., when mobile nav is open)
+   Applied by JS toggling the class
+   ========================================= */
 .no-scroll {
     touch-action: none;
 }
 
 /*Menu*/
 
-
-
+/* =========================================
+   Border helpers
+   Contract:
+   - .border-gradient-full → gradient on all sides
+   - .border-only-bottom → gradient only on bottom edge
+   - .border-gradient → gradient source used by the above
+   ========================================= */
 .border-gradient-full {
     border: 10px solid;
     border-image-slice: 1;
@@ -39,6 +66,7 @@ body {
 
 .border-only-bottom {
     border: 10px solid;
+    /* Slice only bottom edge for gradient border */
     border-image-slice: 0 0 14 0;
     border-width: 3px;
 }
@@ -47,6 +75,11 @@ body {
     border-image-source: linear-gradient(to left, #5ABCAD, #314A49, #07528D, #36C6F4, #616FB5);
 }
 
+/* =========================================
+   Backdrop blur helper
+   Purpose: semi-transparent glass effect for nav/overlays
+   Includes -webkit- prefix for Safari support
+   ========================================= */
 .webkit-backdrop-blur {
     background: inherit !important;
     background-color: rgba(0, 0, 0, .1) !important;
@@ -57,6 +90,10 @@ body {
 /*Menu*/
 /*Bento -> Bento Intro (Desktop)*/
 
+/* =========================================
+   Bento Intro — Desktop grid
+   Purpose: 2 equal columns, 1 row — used on wider viewports
+   ========================================= */
 .desk-intro-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -68,6 +105,11 @@ body {
 /*Bento -> Bento Intro (Desktop)*/
 
 /*Bento -> Bento Intro -> Mob*/
+
+/* =========================================
+   Bento Intro — Mobile grid
+   Purpose: base grid, columns/rows adjusted in media queries
+   ========================================= */
 .bIParent {
     display: grid;
     grid-column-gap: 16px;
@@ -75,11 +117,20 @@ body {
     color: #091421;
 }
 
+/* =========================================
+   Video tile — wrapper
+   Purpose: set stacking context & subtle drop shadow
+   ========================================= */
 .bIVideo {
     position: relative;
     filter: drop-shadow(0 1px #091421);
 }
 
+/* =========================================
+   Video tile — glow effect
+   Purpose: blurred conic gradient glow behind video
+   Note: inset keeps glow within container bounds
+   ========================================= */
 .bIVideo::after {
     content: "";
     position: absolute;
@@ -89,6 +140,10 @@ body {
     filter: blur(10px);
 }
 
+/* =========================================
+   Video container styling
+   Purpose: dark background + rounded corners for the video block
+   ========================================= */
 .video-wrapper {
 
     background-color: #091421;
@@ -96,6 +151,10 @@ body {
 
 }
 
+/* =========================================
+   Mobile-first layout — 320px
+   Purpose: single-column layout with explicit row spans
+   ========================================= */
 @media only screen and (min-width: 320px) {
     .bIParent {
         grid-template-columns: repeat(1, 1fr);
@@ -128,6 +187,10 @@ body {
     }
 }
 
+/* =========================================
+   Small phones — 375px
+   Purpose: 2-column grid, video spans 2x2
+   ========================================= */
 @media only screen and (min-width: 375px) {
     .bIParent {
         grid-template-columns: repeat(2, 1fr);
@@ -160,6 +223,10 @@ body {
     }
 }
 
+/* =========================================
+   Tablets — 768px
+   Purpose: keep 2 columns but increase row heights
+   ========================================= */
 @media only screen and (min-width: 768px) {
     .bIParent {
         grid-template-columns: repeat(2, 1fr);
@@ -170,6 +237,10 @@ body {
 /*grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(4, 1fr);*/
 
+/* =========================================
+   Laptops — 1024px
+   Purpose: 3 columns; hero video spans 2 cols × 3 rows
+   ========================================= */
 @media only screen and (min-width: 1024px) {
     .bIParent {
         grid-template-columns: repeat(3, 1fr);
@@ -207,6 +278,10 @@ body {
 
 /*Peach Gradient*/
 
+/* =========================================
+   Peach gradient — red channel
+   Purpose: noisy gradient background with strong contrast
+   ========================================= */
 /*Red part*/
 .noise-peach {
     width: 100%;
@@ -218,6 +293,10 @@ body {
 }
 
 
+/* =========================================
+   Chrome-specific tweak
+   Purpose: normalize perceived contrast/brightness on Chrome
+   ========================================= */
 /* Chrome-specific */
 @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
     .noise-peach {
@@ -225,6 +304,10 @@ body {
     }
 }
 
+/* =========================================
+   Small phones — 375px
+   Purpose: adjust gradient angle/stop for smaller screens
+   ========================================= */
 @media only screen and (min-width: 375px) {
     .noise-peach {
         width: 100%;
@@ -244,6 +327,10 @@ body {
     }
 }
 
+/* =========================================
+   Laptops — 1024px
+   Purpose: adjust gradient direction & brightness for larger canvases
+   ========================================= */
 @media only screen and (min-width: 1024px) {
     .noise-peach {
         width: 100%;
@@ -266,6 +353,10 @@ body {
 /**/
 /*Red part*/
 
+/* =========================================
+   Peach overlay
+   Purpose: multiply blend adds warmth to the red gradient
+   ========================================= */
 /*Overlay peach*/
 .overlay-peach {
     position: absolute;
@@ -280,6 +371,10 @@ body {
 
 /*Banana Gradient*/
 
+/* =========================================
+   Banana gradient — green channel
+   Purpose: noisy green gradient to pair with peach
+   ========================================= */
 /*Green part*/
 .noise-banana-green {
     width: 100%;
@@ -291,6 +386,9 @@ body {
 }
 
 
+/* =========================================
+   Chrome-specific tweak (banana)
+   ========================================= */
 /* Chrome-specific */
 @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
     .noise-banana-green {
@@ -301,6 +399,10 @@ body {
 /**/
 /*Green part*/
 
+/* =========================================
+   Banana overlay
+   Purpose: multiply blend adds warmth to the green gradient
+   ========================================= */
 /*Overlay banana*/
 .overlay-banana {
     position: absolute;
@@ -316,18 +418,29 @@ body {
 
 /*Bento -> Bento Intro -> Social Media Gradients*/
 
+/* =========================================
+   Z-layer helper for logos used over gradients
+   ========================================= */
 .z-logo {
     position: absolute;
     z-index: 1;
 }
 
 /*Gmail*/
+
+/* =========================================
+   Gmail tile — neutral background (base layer)
+   ========================================= */
 .noise-gmail {
     width: 100%;
     height: 100%;
     background: white;
 }
 
+/* =========================================
+   Gmail overlay
+   Purpose: subtle multiply to soften white base
+   ========================================= */
 .overlay-gmail {
     position: absolute;
     top: 0;
@@ -338,6 +451,10 @@ body {
 /*Gmail*/
 
 /*GitHub*/
+
+/* =========================================
+   GitHub tile — gray noise gradient
+   ========================================= */
 .noise-github-gray {
     width: 100%;
     height: 100%;
@@ -348,6 +465,9 @@ body {
 }
 
 
+/* =========================================
+   Chrome-specific tweak (GitHub)
+   ========================================= */
 /* Chrome-specific */
 @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
     .noise-github-gray {
@@ -355,6 +475,9 @@ body {
     }
 }
 
+/* =========================================
+   GitHub overlay — darken base
+   ========================================= */
 .overlay-github {
     position: absolute;
     top: 0;
@@ -366,6 +489,9 @@ body {
 
 /*LinkedIn*/
 
+/* =========================================
+   LinkedIn tile — blue noise gradient
+   ========================================= */
 .noise-linkedin-blue {
     width: 100%;
     height: 100%;
@@ -376,6 +502,9 @@ body {
 }
 
 
+/* =========================================
+   Chrome-specific tweak (LinkedIn)
+   ========================================= */
 /* Chrome-specific */
 @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
     .noise-linkedin-blue {
@@ -383,6 +512,9 @@ body {
     }
 }
 
+/* =========================================
+   LinkedIn overlay — reinforce brand blue
+   ========================================= */
 .overlay-linkedin {
     position: absolute;
     top: 0;
@@ -398,6 +530,9 @@ body {
 
 /*Bento -> Bento Intro -> Gmail*/
 
+/* =========================================
+   Gmail envelope — brand colors
+   ========================================= */
 .gmail-blue {
     background: #4181EE;
 }
@@ -406,6 +541,13 @@ body {
     background: #C61C19;
 }
 
+/* =========================================
+   Gmail envelope — red chevron
+   Purpose: CSS-only M shape using ::before and ::after
+   Notes:
+   - Magic numbers tuned per breakpoint below
+   - Height 0 with padding trick to preserve aspect ratio
+   ========================================= */
 .gmail-red {
     position: absolute;
     padding: 1.39rem;
@@ -435,6 +577,10 @@ body {
     transform: skew(0deg, 315deg);
 }
 
+/* =========================================
+   Gmail chevron — responsive tuning (320+)
+   Purpose: adjust padding/height for proportion-correct M
+   ========================================= */
 @media only screen and (min-width: 320px) {
     .gmail-red {
         top: 1.45rem;
@@ -450,6 +596,9 @@ body {
     }
 }
 
+/* =========================================
+   Gmail chevron — 375+
+   ========================================= */
 @media only screen and (min-width: 375px) {
     .gmail-red {
         top: .33rem;
@@ -457,6 +606,9 @@ body {
     }
 }
 
+/* =========================================
+   Gmail chevron — 390+
+   ========================================= */
 @media only screen and (min-width: 390px) {
     .gmail-red {
         top: .55rem;
@@ -472,6 +624,9 @@ body {
     }
 }
 
+/* =========================================
+   Gmail chevron — 430+
+   ========================================= */
 @media only screen and (min-width: 430px) {
     .gmail-red {
         top: .88rem;
@@ -480,6 +635,9 @@ body {
 
 }
 
+/* =========================================
+   Gmail chevron — 768+ (tablet)
+   ========================================= */
 @media only screen and (min-width: 768px) {
     .gmail-red {
         top: 1.35rem;
@@ -495,6 +653,9 @@ body {
     }
 }
 
+/* =========================================
+   Gmail chevron — 1024+ (laptop)
+   ========================================= */
 @media only screen and (min-width: 1024px) {
     .gmail-red {
         top: 1rem;
@@ -510,6 +671,9 @@ body {
     }
 }
 
+/* =========================================
+   Gmail chevron — 1280+ (desktop)
+   ========================================= */
 @media only screen and (min-width: 1280px) {
     .gmail-red {
         top: 1.05rem;
@@ -525,6 +689,9 @@ body {
     }
 }
 
+/* =========================================
+   Gmail chevron — 1536+ (large monitors)
+   ========================================= */
 @media only screen and (min-width: 1536px) {
     .gmail-red {
         top: .6rem;
@@ -533,6 +700,9 @@ body {
 
 }
 
+/* =========================================
+   Gmail chevron — 1920+ (FHD+)
+   ========================================= */
 @media only screen and (min-width: 1920px) {
     .gmail-red {
         top: 1.6rem;
@@ -541,6 +711,9 @@ body {
 
 }
 
+/* =========================================
+   Gmail brand tiles — remaining colors
+   ========================================= */
 .gmail-yellow {
     background: #FBBD00;
 }
