@@ -1,8 +1,25 @@
-/**MobNavBar info
- * 
- * Goal: Using backdrop-filter : blur for the navbar I will blur what is 
- * on the background, when it's mobile and tablet the navbar will cover 
- * the whole screen 
+/**
+ * MobNavBar — full-screen mobile navigation with backdrop blur.
+ *
+ * Purpose:
+ *  - Provides a mobile-first navigation that can cover the entire screen when open.
+ *  - Uses Framer Motion to animate the opening/closing of the side menu.
+ *
+ * Behavior:
+ *  - Toggled via MenuToggle (hamburger button).
+ *  - Blurs the content behind using CSS backdrop-filter.
+ *  - May prevent body scroll when open (ensure body overflow handling if needed).
+ *
+ * Accessibility:
+ *  - Manage focus trap when open (focus stays within the menu).
+ *  - Expose aria-expanded on the toggle, and close on Esc key.
+ *
+ * Expected result:
+ *  - Smooth open/close animation with no layout shifts, responsive to touch/keyboard.
+ *
+ * TODO:
+ *  - Implement actual navigation list (links/sections).
+ *  - Consider closing on route change and on overlay click.
  */
 
 //Missing the navigation part , check https://codesandbox.io/p/sandbox/framer-motion-side-menu-mx2rw?file=%2Fsrc%2FNavigation.tsx%3A19%2C15
